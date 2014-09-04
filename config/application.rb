@@ -17,5 +17,7 @@ module Usstfruit
 
     config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
+    config.assets.precompile += %w(admin.css admin.js  mobile.css mobile.js)    
+    
   end
 end
