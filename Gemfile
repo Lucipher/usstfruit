@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 1.2'
 
 
 gem 'twitter_ratchet_rails'
+gem 'weixin_rails_middleware'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
