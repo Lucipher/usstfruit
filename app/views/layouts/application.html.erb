@@ -28,15 +28,15 @@
     </div>
 
 		<nav class="bar bar-tab">
-		  <a class="tab-item" href="/">
+			<%=link_to mobile_root_path,:class=>"tab-item","data-ignore"=>"push" do%>
 		    <span class="icon fa fa-home"></span>
 		    <span class="tab-label">首页</span>
-		  </a>
-			<%=link_to products_path,:class=>"tab-item","data-ignore"=>"push" do%>
+				<%end%>
+			<%=link_to mobile_products_path,:class=>"tab-item","data-ignore"=>"push" do%>
 		    <span class="icon fa fa-list"></span>
 		    <span class="tab-label">选购</span>
 			<%end%>
-			<%=link_to products_path,:class=>"tab-item","data-ignore"=>"push"  do%>
+			<%=link_to "#",:class=>"tab-item","data-ignore"=>"push"  do%>
 		    <span class="icon fa fa-shopping-cart"></span>
 		    <span class="tab-label">购物车</span>
 			<%end%>
