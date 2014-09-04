@@ -7,4 +7,11 @@ Usstfruit::Application.routes.draw do
     resources :products
     resources :cart_product_items
  end
+ 
+ namespace :admin do
+   root :to => 'home#index'
+   resources :products
+   resources :articles
+ 
+ end
 end
