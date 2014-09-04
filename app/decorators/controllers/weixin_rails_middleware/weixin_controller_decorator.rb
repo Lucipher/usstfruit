@@ -114,7 +114,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
 
       # 点击菜单拉取消息时的事件推送
       def reply_click_event
-        if @keyword == "BUTTON_BUY"          
+        if @keyword == "BUTTON_3_2"          
           reply_news_message(nav_articles)
         else
           reply_text_message("你点击了: #{@keyword}")
