@@ -3,6 +3,7 @@
 # 2, @weixin_public_account: 如果配置了public_account_class选项,则会返回当前实例,否则返回nil.
 # 3, @keyword: 目前微信只有这三种情况存在关键字: 文本消息, 事件推送, 接收语音识别结果
 WeixinRailsMiddleware::WeixinController.class_eval do
+  include Rails.application.routes.url_helpers
 
   def server_path
     "http://www.nosweetnopay.com"
@@ -19,7 +20,6 @@ WeixinRailsMiddleware::WeixinController.class_eval do
     # 商城首页
     art_title = generate_article("上理果园", "测试中-暂停营业", "",mobile_root_url)
     arts << art_title
-      
     arts
   end
   
