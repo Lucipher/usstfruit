@@ -35,17 +35,28 @@
 	}
 	.nav_content .tab_content{
 		display: none;
+		overflow-y:auto;
+		height:480px;
 	}
 	
 	/*product _list*/
 	.product {
 		height:50px;
+		padding-top:0px;
 	}
 	.product .product_image{
 		width:50px;
 		float:left; 
+		margin-right:10px;
+		margin-left:-5px;
+		
 	}
 	
+	.product .product_image img{
+		width:50px;
+		padding-right:0px;
+		
+	}
 	.product .product_content h3{
 	 font-size:16px;
 	 color:grey;
@@ -53,16 +64,21 @@
 	
 	.product .product_content .price{
 	 color:red;
+	 font-weight:bold;
 	 font-size:14px;
 	}
+	
+	.product .product_content .unit{
+	 margin-left:0.5em;
+	 font-size:12px;
+	}
+	
 	
 	.product .product_content .product_price{
 		float:left; 
 		
 	}
-	.product .product_content span{
-	 font-size:12px;
-	}
+
 
 
 	.product_button{
@@ -109,6 +125,9 @@
 		font-size:12px;
 		color:red;
 	}
+	
+
+	
 
 </style>
 
@@ -128,6 +147,30 @@
 	<div class="nav_content">			
 		<div id="home" class=" active tab_content">
 			<ul class="table-view">
+			  <li class="table-view-cell">
+					<%=render 'product_item',:id=>1%>
+			  </li>
+			  <li class="table-view-cell">
+					<%=render 'product_item'%>
+			  </li>
+			  <li class="table-view-cell">
+					<%=render 'product_item'%>
+			  </li>
+			  <li class="table-view-cell">
+					<%=render 'product_item'%>
+			  </li>
+			  <li class="table-view-cell">
+					<%=render 'product_item'%>
+			  </li>
+			  <li class="table-view-cell">
+					<%=render 'product_item'%>
+			  </li>
+			  <li class="table-view-cell">
+					<%=render 'product_item'%>
+			  </li>
+			  <li class="table-view-cell">
+					<%=render 'product_item'%>
+			  </li>
 			  <li class="table-view-cell">
 					<%=render 'product_item'%>
 			  </li>
@@ -172,6 +215,7 @@
 </div>
 
 
+<%=render 'product_modal'%>
 
 <script type="text/javascript">
 
