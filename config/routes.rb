@@ -1,9 +1,5 @@
 Usstfruit::Application.routes.draw do
   mount WeixinRailsMiddleware::Engine, at: "/"
-
-  
-
-  
   
   namespace :mobile do
     root :to => 'home#index'
