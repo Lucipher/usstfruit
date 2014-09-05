@@ -1,0 +1,25 @@
+<%= grid(@articles_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+	g.column :name => 'ID', :attribute => 'id'
+	
+	g.column :name => '标题', :attribute => 'title'  do |article|
+		link_to article.title,[:admin,article]
+	end
+	g.column :name => '分类', :attribute => 'article_cate_id'  do |article|
+		if article.article_cate
+			link_to article.article_cate.name,[:admin,article.article_cate] 
+		end
+	end
+
+
+	g.column :name => "关键字" ,:attribute => "keywords"
+	g.column :name => "发布",:attribute => "hidden" do |article|
+		t article.hidden.to_s
+	end
+
+	g.column do |article|
+		edit =  link_to raw("<button class=\"btn btn-mini btn-info\"><i class=\"icon-edit bigger-120\"></i></button>"), edit_admin_article_path(article)
+		remove = link_to raw("<button class=\"btn btn-mini btn-danger\"><i class=\"icon-trash bigger-120\"></i></button>"), [:admin,article], method: :delete, data: { confirm: 'Are you sure?' }
+		raw "#{edit} #{remove}"
+	end
+	
+end -%>

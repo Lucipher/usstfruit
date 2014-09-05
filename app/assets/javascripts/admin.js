@@ -12,5 +12,5 @@
 //= require  admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js
 //= require  admin/plugins/iCheck/icheck.min.js
 //= require  admin/AdminLTE/app.js
-//= require  admin/AdminLTE/dashboard.js
-//= require  admin/AdminLTE/demo.js
+//= require  admin/simditor-all.min
+//= require  wice_grid

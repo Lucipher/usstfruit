@@ -12,6 +12,7 @@ Usstfruit::Application.routes.draw do
    root :to => 'home#index'
    resources :products
    resources :articles
- 
+   resources :article_cates
+   resources :pictures 
  end
 end
