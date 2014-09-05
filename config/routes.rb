@@ -19,5 +19,5 @@ Usstfruit::Application.routes.draw do
        post 'upload'
      end
    end
-   
+ end
 end
