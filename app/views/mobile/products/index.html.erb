@@ -125,97 +125,20 @@
 		font-size:12px;
 		color:red;
 	}
-	
-
-	
-
 </style>
 
 
 <div id="box">
 	<div class="nav_side">
-		<ul class="nav_menu">
-			<li target="search" >
-				<i class="fa fa-search fa-2x red"></i>
-			</li>
-    	
-    	<li target="home" class="active menu_item">测试分类1</li>
-      <li target="about" class="menu_item">测试分类2</li>
-      <li target="contact" class="menu_item">测试分类3</li>
-    </ul>
+		<%=render 'product_cate'%>
 	</div>
 	<div class="nav_content">			
-		<div id="home" class=" active tab_content">
-			<ul class="table-view">
-			  <li class="table-view-cell">
-					<%=render 'product_item',:id=>1%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			</ul>
-		</div>
-		
-		<div id="about" class="tab_content">
-
-			<ul class="table-view">
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			  <li class="table-view-cell">
-					<%=render 'product_item'%>
-			  </li>
-			</ul>
-			
-		</div>
-		
-		<div id="contact" class="tab_content">
-			<p>This content is for contact.</p>
-			
-		</div>
-	</div>
-	
-	
-	<div id ="contentbottom">
-		<span>已选 4</span>
-		<span>总计 4</span>
-		<button class="btn btn-outlined pull-right">选好了</button>
-		
+		<%=render 'product_cate_list'%>
 	</div>
 </div>
 
+<%=render 'product_cate_modal'%>
 
-<%=render 'product_modal'%>
 
 <script type="text/javascript">
 

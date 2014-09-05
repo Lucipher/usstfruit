@@ -1,0 +1,16 @@
+<%@product_cates.each do |cate|%>
+	<%if cate.id == @product_cates.first.id%>
+	   <%active_class = "active"%>
+	<%end%>
+	
+	<div id="<%="cate_#{cate.id}"%>" class="<%=active_class%> tab_content">
+		<ul class="table-view">	
+	 	 <li class="table-view-cell">
+				<%cate.products.each do |product|%>
+					<%=render 'product_item',:product=>product%>
+		
+				<%end%>
+		  </li>
+		</ul>
+	</div>
+<%end%>

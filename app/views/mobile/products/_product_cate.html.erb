@@ -1,0 +1,12 @@
+<ul class="nav_menu">
+	<li target="search" >
+		<i class="fa fa-search fa-2x red"></i>
+	</li>
+	<%@product_cates.each do |cate|%>
+		<%if cate.id == @product_cates.first.id%>
+			<li target="<%="cate_#{cate.id}"%>" class="active menu_item"><%=cate.name%></li>
+		<%else%>
+			<li target="<%="cate_#{cate.id}"%>" class="menu_item"><%=cate.name%></li>	  
+		<%end%>
+	<%end%>
+</ul>
