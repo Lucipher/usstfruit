@@ -13,7 +13,6 @@ WeixinRailsMiddleware::WeixinController.class_eval do
     render xml: send("response_#{@weixin_message.MsgType}_message", {})
   end
 
-
   #default nav new article replay function when user use weixin client
   def nav_articles
     arts = []
@@ -116,7 +115,19 @@ WeixinRailsMiddleware::WeixinController.class_eval do
       def reply_click_event
         if @keyword == "BUTTON_3_2"          
           reply_news_message(nav_articles)
-        else
+        elsif @keyword.include?("BUTTON")
+          @articles = Article.where("keywords = ?",@keyword)
+          if @articles.any?
+             @articles.each do |article|
+               arts = []
+               # 商城首页
+               art_title = generate_article(article.title, article.breif, server_path + article.cover_url(:normal),mobile_article_url(article))
+               arts << art_title
+             end
+          else
+            reply_text_message("暂无内容")
+          end
+        else  
           reply_text_message("你点击了: #{@keyword}")
         end
       end
