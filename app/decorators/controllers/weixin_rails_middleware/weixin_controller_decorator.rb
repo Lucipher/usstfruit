@@ -118,8 +118,9 @@ WeixinRailsMiddleware::WeixinController.class_eval do
         elsif @keyword.include?("BUTTON")
           @articles = Article.where("keywords = ?",@keyword)
           if @articles.any?
+            arts = []
+            
              @articles.each do |article|
-               arts = []
                # 商城首页
                cover_url = article.cover.nil? ? "" : "#{server_path}#{article.cover_url(:normal)}"
                
