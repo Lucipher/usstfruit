@@ -15,7 +15,10 @@
  */
 
 .rich_content img { 
-clear: both; 
-display: block; 
-margin:auto; 
+	clear: both; 
+	display: block; 
+	margin:auto; 
+}
+.rich_content{
+	text-align:center;
 }
