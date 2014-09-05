@@ -126,6 +126,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
                art_title = generate_article(article.title, article.breif,cover_url ,mobile_article_url(article))
                arts << art_title
              end
+             reply_news_message arts
           else
             reply_text_message("暂无内容")
           end
