@@ -13,6 +13,8 @@ Usstfruit::Application.routes.draw do
  namespace :admin do
    root :to => 'home#index'
    resources :products
+   resources :product_cates
+   
    resources :articles
    resources :article_cates
    

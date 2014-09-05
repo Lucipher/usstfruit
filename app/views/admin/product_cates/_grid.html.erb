@@ -1,0 +1,17 @@
+<%= grid(@product_cates_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+	g.column :name => '名称', :attribute => 'name' do |cate|
+		link_to cate.name,[:admin,cate]
+	end
+	
+	g.column :name => "商品数量" do |cate|
+		cate.products.size
+	end
+	
+	g.column do |cate|
+		
+		edit =  link_to raw("<button class=\"btn btn-mini btn-info\"><i class=\"fa fa-edit \"></i></button>"), edit_admin_product_cate_path(cate)
+		remove = link_to raw("<button class=\"btn btn-mini btn-danger\"><i class=\"fa fa-trash-o \"></i></button>"), [:admin,cate], method: :delete, data: { confirm: '确定删除吗?' }
+		raw "#{edit} #{remove}"
+	end
+	
+end -%>

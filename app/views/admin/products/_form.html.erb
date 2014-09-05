@@ -1,0 +1,70 @@
+<%=render 'shared/error_messages',:target=>@product%>
+
+
+<%=simple_form_for([:admin,@product],:html=>{:class=>"form-horizontal"}) do |f|%>
+<fieldset>
+    <div class='span3'>
+        <div class='lead'>
+            <i class='icon-th-large text-contrast'></i>
+            总库商品信息
+        </div>
+				<%=image_tag @goods.icon_url(:normal)%>
+    </div>
+    <div class='span9 '>
+			<%=f.input :name,:input_html=>{:class=>"input-xlarge"}%>
+			<%=f.input :no,:input_html=>{:class=>"input-xlarge"}%>
+			<%=f.input :icon%>
+			<%= f.input(:goods_cate_id, :collection => GoodsCate.main_types,
+			       :as => :grouped_select,
+			       :group_method => :children_goods_cates,
+			       :group_label_method  => :name,
+			       :include_blank => "选择商品分类")%>
+			
+			<%=f.input :brand_id,:collection=> Brand.all,:label_method=>:name%>
+			<%=f.input :mk_price%>
+			<%=f.input :price%>	
+			<%=f.input :weight%>
+			<%=f.input :unit%>
+			<%=f.input :on_sale%>
+			<%=f.input :keywords,:placeholder=>"多个关键字用空分开"%>
+			<%=f.input :brief,:input_html=>{:class=>"input-xxlarge"}%>
+
+		</div>
+		<div class="row-fuild">
+					<%=f.input :intro%>	
+		</div>
+	</fieldset>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">保存</button> 
+			<%=link_to "返回列表", back_path,:class=>"btn"%>
+		</div> <!-- /form-actions -->
+<%end%>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var editor = new Simditor({
+	  textarea: $('#productintro'),
+	  toolbar:[
+		  'title' ,
+		  'bold'   ,
+		  'italic' ,
+		  'underline'  ,
+		  'strikethrough' ,
+		  'ol'  ,
+		  'ul'   ,
+		  'blockquote' ,
+		  'table'    ,
+		  'link'      ,
+		  'image'
+			],
+		 defaultImage: '/images/logo.png',
+		 pasteImage: true,
+		 upload:{
+		   'url': '/admin/pictures/upload',
+		   'params': {'module':"good"},
+		   'connectionCount': 1,
+		   'leaveConfirm': '正在上传文件，如果离开上传会自动取消'}
+	});
+});
+</script>
+

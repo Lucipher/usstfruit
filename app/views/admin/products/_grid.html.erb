@@ -1,0 +1,29 @@
+
+<%= grid(@products_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+	g.column :name => '名称', :attribute => 'name' do |product|
+		link_to product.name,[:admin,product]
+	end
+	g.column :name => '编号', :attribute => 'no'
+	
+	g.column :name => "种类", :attribute => "name",:model=>"ProductCate" do |product|
+		
+  end
+
+
+	g.column :name => "销售价",:attribute => "price"
+	
+	g.column :name => "市场价",:attribute => "mk_price"
+	
+
+	
+	g.column :name => "上架" ,:attribute => "on_sale" do |product|
+		 t product.on_sale.to_s
+	end 
+	
+	g.column do |product|
+		
+		edit =  link_to raw("<button class=\"btn btn-mini btn-info\"><i class=\"fa fa-edit \"></i></button>"), edit_admin_product_path(product)
+		remove = link_to raw("<button class=\"btn btn-mini btn-danger\"><i class=\"fa fa-trash-o \"></i></button>"), [:admin,product], method: :delete, data: { confirm: '确定删除吗?' }
+		raw "#{edit} #{remove}"
+	end
+end -%>
