@@ -1,0 +1,36 @@
+<%= content_for :title do %>
+	文章明细
+<% end %>
+<div class="box">
+	<div class="box-header">
+	   <h3 class="box-title">标题-<%=@article.title%>
+     </h3>
+
+	</div><!-- /.box-header -->
+	<div class="box-body">
+    <div class="row">
+        <div class="col-md-4">
+					<strong>微信用连接:</strong><br/>
+					<i><%="#{mobile_article_url(@article)}"%></i><br/>
+					<strong>关键字:</strong><br/>
+					<i><%=@article.keywords%></i>
+				</div>
+				
+        <div class="col-md-8">
+					<%=raw @article.content%>
+				</div>	
+				
+		
+			</div>
+			
+		<div class="row">
+			<hr/>
+			<div class="btn-group pull-right">
+				<%=link_to "编辑",edit_admin_article_path(@article),:class=>"btn"%>
+				<%=link_to "删除",[:admin,@article],:method=>:delete,:class=>"btn btn-danger"%>
+			</div>
+		</div>
+	</div>
+</div>
+
+
