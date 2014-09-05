@@ -6,6 +6,8 @@ Usstfruit::Application.routes.draw do
     get "two",:controller=>:home,:action=>:test
     resources :products
     resources :cart_product_items
+    resources :articles
+    
  end
  
  namespace :admin do
