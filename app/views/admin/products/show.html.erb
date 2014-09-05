@@ -1,0 +1,49 @@
+
+
+<div class='box bordered-box blue-border'>
+
+  <div class='box-header blue-background'>
+	  <div class='title'>
+        <i class='icon-th-large'></i>
+        商品信息-<%=@product.name%>
+    </div>
+	</div> <!-- /widget-header -->		
+  <div class='box-body box-double-padding'>
+		<div class="row">
+	    <div class="col-md-4">
+					<%=image_tag @product.cover_url(:normal)%>
+			</div>
+	    <div class="col-md-8">
+				<b>商品名称:</b><%=@product.name%><br/>
+				<b>编号:</b><%=@product.no%><br/>
+				<b>分类:</b><%="#{@product.try(:product_cate).try(:name)}"
+				%><br/>
+				
+				<b>市场价:</b><%=number_to_currency(@product.mk_price,:unit=>"&yen")%><br/>
+				<b>出售价:</b><%=number_to_currency(@product.price,:unit=>"&yen")%><br/>
+				<b>计量单位:</b><%=@product.unit%><br/>
+				
+				<b>商品简介:</b><%=@product.brief%><br/>
+				<b>商品文字详细介绍:</b><hr/>
+				<%=raw @product.content%>
+			
+			</div>
+			</div>
+		</div>
+</div>
+	<div class="row">
+		<div class="btn-group pull-left">						
+			<%=link_to "返回列表",admin_products_path,:class=>"btn"%>
+
+		</div>
+
+		<div class="btn-group pull-right">
+			<%=link_to "编辑",edit_admin_product_path(@product),:class=>"btn"%>
+			<%=link_to "删除",[:admin,@product],:method=>:delete,:class=>"btn btn-danger"%>
+		</div>
+	</div>
+	
+
+
+
+
