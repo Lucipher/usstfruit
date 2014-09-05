@@ -13,6 +13,11 @@ Usstfruit::Application.routes.draw do
    resources :products
    resources :articles
    resources :article_cates
-   resources :pictures 
- end
+   
+   resources :pictures do
+     collection do
+       post 'upload'
+     end
+   end
+   
 end
