@@ -121,7 +121,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
              @articles.each do |article|
                arts = []
                # 商城首页
-               cover_url = article.cover.nil? ? "" : server_path + article.cover_url(:normal)
+               cover_url = article.cover.nil? ? "" : "#{server_path}#{article.cover_url(:normal)}"
                
                art_title = generate_article(article.title, article.breif,cover_url ,mobile_article_url(article))
                arts << art_title
