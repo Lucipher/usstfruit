@@ -1,8 +1,9 @@
 <div class="product">
 	<div id="product_image_<%=product.id%>" class="product_image">
-		<a href="#modal" data-ignore="push">
+		<%=link_to [:mobile,product],:remote=>true,"data-ignore"=>"push" do%>
+			1
 			<%=image_tag product.cover_url(:small) ,:class=>"product_cover"%>
-		</a>
+		<%end%>
 	</div>
 	<div class="product_content">
 		<h3><%=product.name%></h3>

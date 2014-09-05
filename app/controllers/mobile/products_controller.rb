@@ -4,7 +4,7 @@ class  Mobile::ProductsController < Mobile::BaseController
   end
   
   def show
-    
+    @product = Product.find(params[:id])
   end
   
 end

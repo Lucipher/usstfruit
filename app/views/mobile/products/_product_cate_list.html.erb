@@ -5,12 +5,13 @@
 	
 	<div id="<%="cate_#{cate.id}"%>" class="<%=active_class%> tab_content">
 		<ul class="table-view">	
-	 	 <li class="table-view-cell">
 				<%cate.products.each do |product|%>
-					<%=render 'product_item',:product=>product%>
-		
+					<li class="table-view-cell">
+		 	 
+						<%=render 'product_item',:product=>product%>
+					</li>
+				  
 				<%end%>
-		  </li>
 		</ul>
 	</div>
 <%end%>

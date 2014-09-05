@@ -127,6 +127,43 @@
 	}
 </style>
 
+<style>
+
+.remodal {
+	padding-top:10px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+}
+.remodal h1{
+	font-size:16px;
+}
+.modal_content{
+	list-style-type:none;
+}
+.modal_content{
+	margin-top:0px;
+	
+	margin-left:0px;
+	padding-left:0px;
+}
+
+.modal_content li{
+	padding-left:5%;
+	text-align:left;
+  border-bottom-width:1px;
+  border-bottom-style:solid;
+	border-bottom-color:grey;
+}
+
+.remodal .product_cover{
+	width:100%;
+	padding-left:0px;
+
+}
+</style>
+
+
 
 <div id="box">
 	<div class="nav_side">
@@ -137,8 +174,14 @@
 	</div>
 </div>
 
-<%=render 'product_cate_modal'%>
-
+<div id="remodal_window" class="remodal" data-remodal-id="modal">
+    <h1>123</h1>
+		<ul class="modal_content">
+			<li>价格: &yen 15.0 /瓶</li>
+			<li>积分:0</li>
+			<li>描述:一个大大的火龙果</li>
+		</ul>
+</div>
 
 <script type="text/javascript">
 
