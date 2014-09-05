@@ -2,8 +2,8 @@
     <h1><%=product.name%></h1>
 		<%=image_tag product.cover_url(:normal) ,:class=>"product_cover"%>
 		<ul class="modal_content">
-			<li>价格: &yen 15.0 /瓶</li>
+			<li>价格: <%=number_to_currency product.price,:unit=>"&yen"%> /<%=product.unit%></li>
 			<li>积分:0</li>
-			<li>描述:一个大大的火龙果</li>
+			<li>描述:<%=raw product.content%></li>
 		</ul>
 </div>
