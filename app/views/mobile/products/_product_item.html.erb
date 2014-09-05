@@ -1,7 +1,7 @@
 <div class="product">
 	<div id="product_image_<%=product.id%>" class="product_image">
 		<a href="#modal" data-ignore="push">
-			<%image_tag product.cover_url(:normal) ,:class=>"product_cover"%>
+			<%=image_tag product.cover_url(:small) ,:class=>"product_cover"%>
 		</a>
 	</div>
 	<div class="product_content">
