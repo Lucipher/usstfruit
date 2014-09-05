@@ -5,8 +5,16 @@ Usstfruit::Application.routes.draw do
     root :to => 'home#index'
     get "two",:controller=>:home,:action=>:test
     resources :products
-    resources :cart_product_items
     resources :articles
+    
+    #shopping part
+    resources :carts
+    resources :cart_items do
+      collection do
+        get 'plus'
+        get 'minus'
+      end
+    end
     
  end
  

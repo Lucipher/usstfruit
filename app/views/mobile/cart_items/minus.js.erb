@@ -1,0 +1,5 @@
+<%if @cart_item.quantity < 1%>
+	$("#prodcut_<%=@cart_item.product.id%> .fa-minus-circle").hide();
+	$("#prodcut_<%=@cart_item.product.id%> .product_quantity").html(<%=@cart_item.quantity%>);
+	$("#prodcut_<%=@cart_item.product.id%> .product_quantity").hide();
+<%end%>
