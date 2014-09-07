@@ -23,7 +23,14 @@ class Admin::PicturesController <  Admin::BaseController
 
     
     img = MiniMagick::Image.from_file path
-    img.resize 300
+    
+    if img['width'] > 300
+      percent  = img['width']*100/300
+      image.combine_options do |c|
+        c.sample "#{percent}%"
+      end
+    end
+    
     img.write resize_path
     #logger.info(BASE_URL  + File.join("uploads",module_name,new_name).to_s)
     render :json => {:file_path=>BASE_URL + File.join("uploads",module_name,"resize_"+new_name).to_s}
