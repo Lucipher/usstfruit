@@ -25,7 +25,7 @@ class Admin::PicturesController <  Admin::BaseController
     img = MiniMagick::Image.from_file path
     
     if img[:width] > 300
-      percent  = img['width']*100/300
+      percent  = img[:width] *100/300
      image = image.combine_options do |c|
                 c.sample "#{percent}%"
               end
