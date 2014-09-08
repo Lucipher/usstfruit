@@ -2,6 +2,10 @@
 	$("#prodcut_<%=@cart_item.product.id%> .fa-minus-circle").hide();
 	$("#prodcut_<%=@cart_item.product.id%> .product_quantity").html(<%=@cart_item.quantity%>);
 	$("#prodcut_<%=@cart_item.product.id%> .product_quantity").hide();
+	$("#total_count").html("已选 <%=@cart.total_count%> 件");
+	$("#total_amount").html("总计 <%=@cart.total_amount%> 元");
 <%else%>
 	$("#prodcut_<%=@cart_item.product.id%> .product_quantity").html(<%=@cart_item.quantity%>);
+	$("#total_count").html("已选 <%=@cart.total_count%> 件");
+	$("#total_amount").html("总计 <%=@cart.total_amount%> 元");
 <%end%>

@@ -179,10 +179,9 @@
 
 
 	<div id ="contentbottom">
-		<span>已选 0</span>
-		<span>总计 0</span>
+		<span id="total_count">已选 <%=current_cart.try(:total_count)%> 件</span>
+		<span id="total_amount">总计  <%=current_cart.try(:total_amount)%> 元</span>
 		<button class="btn btn-outlined pull-right">选好了</button>
-	
 	</div>
 <div id="remodal_window" class="remodal" data-remodal-id="modal">
 
