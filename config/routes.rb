@@ -15,6 +15,7 @@ Usstfruit::Application.routes.draw do
         get 'minus'
       end
     end
+    resources :shoppings
     
  end
  

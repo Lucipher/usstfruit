@@ -36,7 +36,9 @@
 		    <span class="icon fa fa-list"></span>
 		    <span class="tab-label">选购</span>
 			<%end%>
-			<%=link_to "#",:class=>"tab-item","data-ignore"=>"push"  do%>
+			
+			
+			<%=link_to edit_mobile_cart_path(current_cart),:class=>"tab-item","data-ignore"=>"push"  do%>
 		    <span class="icon fa fa-shopping-cart"></span>
 		    <span class="tab-label">购物车</span>
 			<%end%>

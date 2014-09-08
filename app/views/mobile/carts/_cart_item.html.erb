@@ -1,0 +1,36 @@
+<%product = cart_item.product%>
+<div id="prodcut_<%=product.id%>" class="product">
+	<div id="product_image_<%=product.id%>" class="product_image">
+		<%=link_to [:mobile,product],:remote=>true,"data-ignore"=>"push" do%>
+			<%=image_tag product.cover_url(:small) ,:class=>"product_cover"%>
+		<%end%>
+	</div>
+	<div class="product_content">
+		<h3><%=product.name%></h3>
+		
+		<div class="product_detail">
+			<div class="product_price">
+				<span class="price"><%=number_to_currency product.price,:unit=>"&yen"%></span><span class="unit">/<%=product.unit%></span>
+			</div>
+			<div class="product_button pull-right">
+				<%quantity = current_cart.cart_items.find_by_product_id(product.id).try(:quantity)%>
+				<%quantity = quantity.nil? ? 0 : quantity%>
+				
+				<%=link_to minus_mobile_cart_items_path(:cart_id=>current_cart,:product_id=>product.id) ,:remote=>true,"data-ignore"=>"push" do%>
+				<i class="fa fa-minus-circle grey"></i>
+				<%end%>
+				<p class="product_quantity"><%=quantity%></p>
+				<%=link_to plus_mobile_cart_items_path(:cart_id=>current_cart,:product_id=>product.id) ,:remote=>true,"data-ignore"=>"push" do%>
+					<i class="fa fa-plus-circle red"></i>
+				<%end%>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	<%if quantity == 0%>
+	$("#prodcut_<%=product.id%> .fa-minus-circle").hide();
+	$("#prodcut_<%=product.id%> .product_quantity").hide();	<%end%>
+</script>
