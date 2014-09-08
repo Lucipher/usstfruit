@@ -15,7 +15,9 @@
 				<%quantity = current_cart.cart_items.find_by_product_id(product.id).try(:quantity)%>
 				<%quantity = quantity.nil? ? 0 : quantity%>
 				
+				<%=link_to minus_mobile_cart_items_path(:cart_id=>current_cart,:product_id=>product.id) ,:remote=>true,"data-ignore"=>"push" do%>
 				<i class="fa fa-minus-circle grey"></i>
+				<%end%>
 				<p class="product_quantity"><%=quantity%></p>
 				<%=link_to plus_mobile_cart_items_path(:cart_id=>current_cart,:product_id=>product.id) ,:remote=>true,"data-ignore"=>"push" do%>
 					<i class="fa fa-plus-circle red"></i>

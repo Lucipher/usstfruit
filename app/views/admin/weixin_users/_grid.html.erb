@@ -1,0 +1,14 @@
+<%= grid(@users_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+
+	
+	g.column :name =>"open_id" , :attribute => 'open_id' do |user|
+			link_to user.open_id,[:admin,user]
+	end
+	
+	g.column :name => "权限",:attribute => "role"
+	g.column :name => "初次订阅时间",:attribute => 'created_at' do |user|
+		l user.created_at if user.created_at
+	end
+	
+
+end-%>

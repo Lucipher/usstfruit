@@ -32,7 +32,7 @@
               </li>
             	<li class="treeview">
                   <a href="#">
-                      <i class="fa fa-bar-chart-o"></i>
+                      <i class="fa fa-cube"></i>
                       <span>商品管理</span>
                   </a>
                   <ul class="treeview-menu">
@@ -51,7 +51,7 @@
 
             	<li class="treeview">
                   <a href="#">
-                      <i class="fa fa-bar-chart-o"></i>
+                      <i class="fa fa-bookmark-o"></i>
                       <span>文章管理</span>
                   </a>
                   <ul class="treeview-menu">
@@ -59,8 +59,24 @@
 											<%=link_to admin_article_cates_path do%>
 												<i class="fa fa-angle-double-right"></i> <span>文章分类管理</span>
 											<%end%>
+											</li>
+	                    <li>
 											<%=link_to admin_articles_path do%>
 												<i class="fa fa-angle-double-right"></i> <span>文章管理</span>
+											<%end%>
+										</li>
+                  </ul>
+              </li>
+
+            	<li class="treeview">
+                  <a href="#">
+                      <i class="fa fa-users"></i>
+                      <span>微信用户管理</span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li>
+											<%=link_to admin_weixin_users_path do%>
+												<i class="fa fa-angle-double-right"></i> <span>微信用户列表</span>
 											<%end%>
 										</li>
                   </ul>

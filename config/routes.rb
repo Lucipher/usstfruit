@@ -20,6 +20,10 @@ Usstfruit::Application.routes.draw do
  
  namespace :admin do
    root :to => 'home#index'
+   
+   resources :weixin_users
+   
+   
    resources :products
    resources :product_cates
    

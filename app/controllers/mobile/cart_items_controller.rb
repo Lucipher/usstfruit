@@ -52,11 +52,14 @@ class Mobile::CartItemsController < Mobile::BaseController
   
   def minus
     @success = false
-    if params[:quantity].present? && params[:quantity].to_i > 0
-      @cart_item = CartItem.find(params[:id])
-      @cart_item.quantity-=params[:quantity].to_i if @cart_item.quantity>1
-      @cart_item.cal_amount
-      @success = @cart_item.save
+    if params[:cart_id].present? & params[:product_id].present?
+      @cart = Cart.find(params[:cart_id])
+      @cart_item = @cart.cart_items.find_by_product_id(params[:product_id])
+      if @cart_item
+        @cart_item.quantity = @cart_item.quantity.to_i - 1
+        @cart_item.amount = @cart_item.quantity  * @cart_item.price
+        @cart_item.save
+      end
     end
   end
   
