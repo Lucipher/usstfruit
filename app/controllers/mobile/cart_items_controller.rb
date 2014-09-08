@@ -28,6 +28,7 @@ class Mobile::CartItemsController < Mobile::BaseController
     
     if params[:cart_id].present? & params[:product_id].present?
       @cart = Cart.find(params[:cart_id])
+      @product = Product.find(params[:product_id])
       @cart_item = @cart.cart_items.find_by_product_id(params[:product_id])
       if @cart_item.nil?
         @product = Product.find(params[:product_id])
@@ -39,6 +40,8 @@ class Mobile::CartItemsController < Mobile::BaseController
         @cart_item.name = @product.name
         @cart_item.point = @product.point
         @cart_item.price = @product.price
+      else
+        @cart_item.price =  @product.price
       end
       
       @cart_item.quantity = @cart_item.quantity.to_i + 1
@@ -54,8 +57,11 @@ class Mobile::CartItemsController < Mobile::BaseController
     @success = false
     if params[:cart_id].present? & params[:product_id].present?
       @cart = Cart.find(params[:cart_id])
+      @product = Product.find(params[:product_id])
+      
       @cart_item = @cart.cart_items.find_by_product_id(params[:product_id])
       if @cart_item
+        @cart_item.price =  @product.price
         @cart_item.quantity = @cart_item.quantity.to_i - 1
         @cart_item.amount = @cart_item.quantity  * @cart_item.price
         @cart_item.save
