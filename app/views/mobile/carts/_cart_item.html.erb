@@ -1,7 +1,6 @@
 <%product = cart_item.product%>
 
 
-<%if cart_item.quantity > 0 %>
 <div id="prodcut_<%=product.id%>" class="product">
 	<div id="product_image_<%=product.id%>" class="product_image">
 		<%=link_to [:mobile,product],:remote=>true,"data-ignore"=>"push" do%>
@@ -31,7 +30,6 @@
 	</div>
 </div>
 
-<%end%>
 <script>
 	<%if quantity == 0%>
 	$("#prodcut_<%=product.id%> .fa-minus-circle").hide();
