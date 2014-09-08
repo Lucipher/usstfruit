@@ -1,4 +1,5 @@
-<ul class="table-view">	
+
+<ul class="table-view" style="margin-top:0px">	
 		<%@cart.cart_items.each do |cart_item|%>
 			<%if cart_item.quantity > 0 %>		
 				<li class="table-view-cell">
@@ -6,4 +7,25 @@
 				</li>
 			<%end%>
 		<%end%>
+		<li class="table-view-cell" style="background-color:#FBE9E9">
+			<span id="total_count">已选 <%=current_cart.try(:total_count)%> 件</span>
+			<span id="total_amount">总计  <%=current_cart.try(:total_amount)%> 元</span>
+		</li>
 </ul>
+
+<%=simple_form_for [:mobile,@cart] ,:html=>{:class=>"input-group"} do |f| %>
+  <div class="input-row">
+    <label>订单备注</label>
+		<%=f.text_field :remark,:placeholder=>"比如特殊的送货时间或者水果要求"%>
+  </div>
+
+<%end%>
+<button class="btn btn-block submit-cart">去结算</button>
+
+<script>
+	$(document).ready(function(){
+	  $(".submit-cart").click(function(){
+			$("form.input-group").submit();
+	  });
+	});
+</script>
