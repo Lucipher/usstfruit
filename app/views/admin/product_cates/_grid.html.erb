@@ -3,10 +3,17 @@
 		link_to cate.name,[:admin,cate]
 	end
 	
+	g.column :name => "显示权重", :attribute => 'priority' do |cate|
+		cate.priority
+	end
+	
+	
 	g.column :name => "商品数量" do |cate|
 		cate.products.size
 	end
 	
+	
+
 	g.column do |cate|
 		
 		edit =  link_to raw("<button class=\"btn btn-mini btn-info\"><i class=\"fa fa-edit \"></i></button>"), edit_admin_product_cate_path(cate)

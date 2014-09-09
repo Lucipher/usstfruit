@@ -15,6 +15,9 @@
 	g.column :name => "市场价",:attribute => "mk_price"
 	
 
+	g.column :name => "显示权重" ,:attribute => "priority" do |product|
+		product.priority
+	end
 	
 	g.column :name => "上架" ,:attribute => "on_sale" do |product|
 		 t product.on_sale.to_s

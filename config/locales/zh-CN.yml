@@ -1,0 +1,31 @@
+"zh-CN":
+    "true": "是"
+    "false": "否"   
+    activerecord:
+        models:
+            product: "商品"
+            article: "文章"
+        attributes:
+            product:
+                name: "名称"
+                no: "编号"
+                cover: "封面"
+                product_cate_id: "产品分类"
+                mk_price: "市场价"
+                price: "销售价"
+                unit: "单位"
+                on_sale: "上架"
+                keywords: "关键字"
+                brief: "简介"
+                priority: "显示权重"
+                content: "正文"
+            product_cate:
+                priority: "显示权重"
+            article:
+                title: "标题"
+                keywords: "关键字"
+                breif: "简介"
+                article_cate_id: "文章分类"
+                cover: "封面"
+                hidden: "隐藏"
+                content: "正文"

@@ -1,7 +1,7 @@
 class  Admin::ProductCatesController < Admin::BaseController  
   def index
     @q = ProductCate.search(params[:q])
-    @product_cates = @q.result(distinct: true)
+    @product_cates = @q.result(distinct: true).order("priority desc")
     @product_cates_grid = initialize_grid(@product_cates,:per_page => 20)
   end
 
