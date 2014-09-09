@@ -28,6 +28,8 @@
 	
 	.nav_content .active{
 		display: block;
+		overflow-y:auto;
+		height:480px;
 	}
 	.nav_content .tab_content{
 		display: none;

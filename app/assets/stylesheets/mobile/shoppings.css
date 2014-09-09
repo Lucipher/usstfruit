@@ -32,3 +32,8 @@ form.input-group input{
  padding-bottom:50px;
  color:white;
 }
+
+.roll-y{
+	overflow-y:auto;
+	height:480px;
+}
