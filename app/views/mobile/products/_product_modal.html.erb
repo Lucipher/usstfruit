@@ -1,6 +1,6 @@
 <div id="remodal_window" class="remodal" data-remodal-id="modal">
     <h1><%=product.name%></h1>
-		<%=image_tag product.cover_url(:large) ,:class=>"product_cover"%>
+		<%=image_tag product.cover_url ,:class=>"product_cover"%>
 		<ul class="modal_content">
 			<li>价格: <%=number_to_currency product.price,:unit=>"&yen"%> /<%=product.unit%></li>
 			<li>积分:0</li>
