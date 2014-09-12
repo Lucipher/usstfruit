@@ -1,51 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Ratchet template page</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>上理果园</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+		    <%= csrf_meta_tags %>
+		    <%= stylesheet_link_tag "admin", media: "all" %>
+		    <%= javascript_include_tag "admin"%>
+				<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    </head>
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+			<%=render 'shared/admin/header_nav'%>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+           <%=render 'shared/admin/side_nav'%>
+					  <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Dashboard
+                        <small>Control panel</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </section>
 
-    <!-- Sets initial viewport load and disables zooming  -->
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-
-    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_include_tag "application"%>
-  </head>
-  <body>
-
-    <!-- Make sure all your bars are the first things in your <body> -->
-    <!--header class="bar bar-nav">
-      <h1 class="title"></h1>
-    </header-->
-
-    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-    <div class="content">
-      <%= yield %>
-    </div>
-
-		<nav class="bar bar-tab">
-			<%=link_to mobile_root_path,:class=>"tab-item","data-ignore"=>"push" do%>
-		    <span class="icon fa fa-home"></span>
-		    <span class="tab-label">首页</span>
-				<%end%>
-			<%=link_to mobile_products_path,:class=>"tab-item","data-ignore"=>"push" do%>
-		    <span class="icon fa fa-list"></span>
-		    <span class="tab-label">选购</span>
-			<%end%>
-			<%=link_to "#",:class=>"tab-item","data-ignore"=>"push"  do%>
-		    <span class="icon fa fa-shopping-cart"></span>
-		    <span class="tab-label">购物车</span>
-			<%end%>
-		  <a class="tab-item" href="#">
-		    <span class="icon fa fa-user"></span>
-		    <span class="tab-label">个人中心</span>
-		  </a>
-
-		</nav>
-		
-  </body>
+                <!-- Main content -->
+                <section class="content">
+									<%= notice_message %>
+	
+         		      <%= yield %>
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+    </body>
 </html>

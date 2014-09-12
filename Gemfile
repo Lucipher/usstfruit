@@ -43,9 +43,19 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'devise'
 
 gem 'twitter_ratchet_rails'
 gem 'weixin_rails_middleware'
+gem 'jpush' ,github: 'jpush/jpush-api-ruby-client' 
+
+#API
+gem 'grape'
+gem 'grape-entity'
+gem 'rack-contrib'
+gem 'rack-cors'
+
+
 
 
 group :doc do

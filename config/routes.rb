@@ -1,4 +1,5 @@
 Usstfruit::Application.routes.draw do
+  devise_for :users
   mount WeixinRailsMiddleware::Engine, at: "/"
   
   namespace :mobile do
