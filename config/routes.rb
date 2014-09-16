@@ -1,6 +1,7 @@
 Usstfruit::Application.routes.draw do
   devise_for :users
   mount WeixinRailsMiddleware::Engine, at: "/"
+  mount Usstfruit::API => "/"
   
   namespace :mobile do
     root :to => 'home#index'
@@ -28,6 +29,7 @@ Usstfruit::Application.routes.draw do
    
    resources :products
    resources :product_cates
+   resources :shoppings
    
    resources :articles
    resources :article_cates

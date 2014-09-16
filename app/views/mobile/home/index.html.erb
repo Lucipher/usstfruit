@@ -20,13 +20,5 @@
         autoPage: true, //自动分页
         switchLoad: "_src" //切换加载，真实图片路径为"_src" 
     });
-
-    function changeBranch(obj) {
-        var fil = "?";
-        if (window.location.href.indexOf("?") != -1)
-            fil = "&";
-        window.location.href = window.location.href.replace("city_id", "c") + fil + "city_id=" + $(obj).val()+"&entry=";
-    }
-    
     
 </script>

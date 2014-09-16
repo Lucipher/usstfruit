@@ -8,6 +8,7 @@
 		<option value=3>21:00 - 21:30</option>
 		</select>
   </div>
+	<%=f.hidden_field :cart_id%>
 
   <div class="input-row">
     <label>联系人</label>
@@ -21,7 +22,17 @@
     <label>地址</label>
 		<%=f.text_field :customer_address,:placeholder=>"如:南校区一公寓1号楼999"%>
 	</div>
+	
 <%end%>
 
+<button class="btn btn-block submit-cart">提交订单</button>
 
-<button class="btn btn-block submit-cart">暂停营业中</button>
+
+<script>
+ $(document).ready(function(){
+  $("button").click(function(){
+    $("form").submit();
+  });
+});
+</script>
+

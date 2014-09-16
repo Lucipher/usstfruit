@@ -15,6 +15,8 @@ module Usstfruit
       end
     end
     config.autoload_paths += %W(#{config.root}/lib)
+    config.paths.add "app/api", glob: "**/*.rb"
+    config.autoload_paths += %W(#{config.root}/app/api)
     
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :"zh-CN"

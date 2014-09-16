@@ -1,0 +1,11 @@
+<%= grid(@shoppings_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+	g.column :name => 'ID', :attribute => 'id'
+	
+
+	g.column do |shopping|
+		edit =  link_to raw("<button class=\"btn btn-mini btn-info\"><i class=\"fa fa-edit bigger-120\"></i></button>"), edit_admin_shopping_path(shopping)
+		remove = link_to raw("<button class=\"btn btn-mini btn-danger\"><i class=\"fa fa-trash-o bigger-120\"></i></button>"), [:admin,shopping], method: :delete, data: { confirm: 'Are you sure?' }
+		raw "#{edit} #{remove}"
+	end
+	
+end -%>
