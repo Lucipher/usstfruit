@@ -12,8 +12,15 @@ module Usstfruit
     resource :shoppings do
       get do
         @shoppings = Shopping.all
-        present @shoppings, :with =>Entities::Shopping
+        present @shoppings
       end
+      
+      get ":id" do
+        @shopping = Shopping.includes(:shopping_items).find(params[:id])
+        present @shopping, :with => Entities::Shopping
+      end
+      
+      
     end
   end
 
