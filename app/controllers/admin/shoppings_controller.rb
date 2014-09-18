@@ -9,12 +9,36 @@ class Admin::ShoppingsController <  Admin::BaseController
     @shopping = Shopping.find(params[:id])
   end
   
+  def operation_history
+    @shopping = Shopping.find(params[:id])
+  end
   
-  def to_cancel
+  
+  def to_confirm
     @shopping = Shopping.find(params[:id])
     @shopping.confirm
+    @shopping.save
+    redirect_to [:admin,@shopping],:notice=>"订单已确认配货"
+  end
+  
+  
+  def to_ship
+    @shopping = Shopping.find(params[:id])
+    @shopping.ship
+    @shopping.save
+    redirect_to [:admin,@shopping],:notice=>"订单已确认配货"
+  end
+  
+  def to_finish
+    @shopping = Shopping.find(params[:id])
+    @shopping.finish
+    @shopping.save
+    redirect_to [:admin,@shopping],:notice=>"订单已确认配货"
+  end
+  def to_cancel
+    @shopping = Shopping.find(params[:id])
     @shopping.cancel
-    
-    render :text=> @shopping.confirmed_at
+    @shopping.save
+    redirect_to [:admin,@shopping],:notice=>"订单已被取消"
   end
 end

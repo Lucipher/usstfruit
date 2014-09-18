@@ -1,8 +1,6 @@
 class Shopping < ActiveRecord::Base
   include AASM
-
-  
-  has_many :shopping_items
+  has_many :shopping_items,:dependent => :destroy
   belongs_to :cart
   after_create :save_shopping_items
   before_save :update_status
@@ -22,6 +20,17 @@ class Shopping < ActiveRecord::Base
                     :to => :confirmed,:on_transition => :confirm_shopping
      end
      
+     event :ship do
+       transitions :from => :confirmed, 
+                    :to => :shipping,:on_transition => :shipping_shopping
+     end
+     
+     event :finish do
+       transitions :from => :shipping, 
+                    :to => :finished,:on_transition => :finish_shopping
+     end
+     
+     
      event :cancel do
        transitions :from => [:new,:confirmed,:shipping,:finished], 
                    :to => :canceled,:on_transition => :cancel_shopping
@@ -38,10 +47,16 @@ class Shopping < ActiveRecord::Base
     self.confirmed_at = Time.now
   end
   
-  def ship_shopping
-    self.shiped_at = Time.now
+  def shipping_shopping
+    self.shipped_at = Time.now
   end
   
+  
+  def finish_shopping
+    self.closed_at = Time.now
+  end
+  
+
   
   def cal_amount
     self.amount = self.shopping_items.inject(0) { |sum, i| sum+i.amount }

@@ -32,6 +32,11 @@ Usstfruit::Application.routes.draw do
    resources :shoppings do
      member do
        get 'to_cancel'
+       get 'to_confirm'
+       get 'to_ship'
+       get 'to_finish'
+       
+       get 'operation_history'
      end
    end
    

@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="btn-group pull-left">
+		<%=link_to "返回列表", admin_shoppings_path,:class=>"btn"%>
+	
+	</div>
+	<div class="btn-group pull-right">
+		
+		<%if @shopping.may_cancel? %>
+			<%=link_to "取消订单",to_cancel_admin_shopping_path(@shopping),:class=>"btn btn-danger"%>
+		<%end%>
+		<%if @shopping.may_confirm? %>
+			<%=link_to "配货确认",to_confirm_admin_shopping_path(@shopping),:class=>"btn btn-primary"%>
+		<%end%>
+
+		<%if @shopping.may_ship? %>
+			<%=link_to "送货确认",to_ship_admin_shopping_path(@shopping),:class=>"btn btn-primary"%>
+		<%end%>
+		
+		<%if @shopping.may_finish? %>
+			<%=link_to "订单完成",to_finish_admin_shopping_path(@shopping),:class=>"btn btn-success"%>
+		<%end%>
+		
+		<%=link_to "删除",[:admin,@shopping],:method=>:delete,:class=>"btn btn-danger"%>
+	</div>
+</div>
+
