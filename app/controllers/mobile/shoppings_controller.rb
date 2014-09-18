@@ -8,6 +8,8 @@ class  Mobile::ShoppingsController < Mobile::BaseController
   
   def create
     @shopping = Shopping.new(shopping_params)
+    
+    logger.info("new shopping from cart id :#{@shopping.cart_id}")
     @cart = Cart.find(@shopping.cart_id)
     
     @cart.cart_items.each do |cart_item|
@@ -20,8 +22,9 @@ class  Mobile::ShoppingsController < Mobile::BaseController
       shopping_item.amount  = cart_item.amount
       @shopping.shopping_items << shopping_item
     end
-    
+    @shopping.cal_amount
     if @shopping.save
+      session[:cart_id]=nil
       redirect_to mobile_products_path
     else
       render 'new'
@@ -33,6 +36,8 @@ class  Mobile::ShoppingsController < Mobile::BaseController
     if params[:cart_id].present?
       @shopping = Shopping.new
       @shopping.cart_id = params[:cart_id]
+      @cart = Cart.find(@shopping.cart_id)
+      @shopping.remark = @cart.remark
     else
       redirect_to mobile_products_path
     end

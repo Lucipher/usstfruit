@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912111856) do
+ActiveRecord::Schema.define(version: 20140917153934) do
 
   create_table "article_cates", force: true do |t|
     t.string   "name"
@@ -119,6 +119,9 @@ ActiveRecord::Schema.define(version: 20140912111856) do
     t.datetime "canceled_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "aasm_state"
+    t.datetime "confirmed_at"
+    t.datetime "shipped_at"
   end
 
   create_table "users", force: true do |t|

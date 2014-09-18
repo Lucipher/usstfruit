@@ -1,6 +1,15 @@
 class Shopping < ActiveRecord::Base
   include AASM
 
+  
+  has_many :shopping_items
+  belongs_to :cart
+  after_create :save_shopping_items
+  before_save :update_status
+  validates :customer_name,:customer_address,:mobile,:presence => true
+
+
+
    aasm do
      state :new, :initial => true
      state :confirmed
@@ -22,11 +31,7 @@ class Shopping < ActiveRecord::Base
    end
 
 
-  
-  has_many :shopping_items
-  after_create :save_shopping_items
-  validates :customer_name,:customer_address,:mobile,:presence => true
-  
+
   
   
   def confirm_shopping
@@ -37,6 +42,10 @@ class Shopping < ActiveRecord::Base
     self.shiped_at = Time.now
   end
   
+  
+  def cal_amount
+    self.amount = self.shopping_items.inject(0) { |sum, i| sum+i.amount }
+  end
   
   def cancel_shopping
     self.canceled_at = Time.now
@@ -49,6 +58,24 @@ class Shopping < ActiveRecord::Base
       item.save
     end
   end
+  
+  def update_status
+    if self.aasm_state == "new"
+      self.status = "新订单"
+    elsif self.aasm_state == "confirmed"
+      self.status = "配货中"
+
+    elsif self.aasm_state == "shipping"
+      self.status = "配送中"
+
+    elsif self.aasm_state == "finished"
+      self.status = "订单完成"
+    elsif self.aasm_state == "canceled"
+      self.status = "订单取消"
+    end
+
+  end
+  
 end
 
 

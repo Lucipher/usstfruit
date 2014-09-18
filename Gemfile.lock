@@ -16,6 +16,7 @@ GIT
 GEM
   remote: https://ruby.taobao.org/
   specs:
+    aasm (3.4.0)
     actionmailer (4.0.0)
       actionpack (= 4.0.0)
       mail (~> 2.5.3)
@@ -220,6 +221,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   bootstrap_helper!
   carrierwave (= 0.6.2)
   carrierwave-upyun (= 0.1.5)

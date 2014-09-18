@@ -1,5 +1,12 @@
 <%= grid(@shoppings_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
-	g.column :name => 'ID', :attribute => 'id'
+	g.column :name => 'ID', :attribute => 'id' do |shopping|
+		link_to shopping.id,[:admin,shopping]
+	end
+	g.column :name => '姓名', :attribute => 'customer_name'
+	g.column :name => '地址', :attribute => 'customer_address'
+	g.column :name => '手机', :attribute => 'mobile'
+	g.column :name => '金额', :attribute => 'amount'
+	g.column :name => '状态', :attribute => 'status'
 	
 
 	g.column do |shopping|

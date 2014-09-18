@@ -29,7 +29,11 @@ Usstfruit::Application.routes.draw do
    
    resources :products
    resources :product_cates
-   resources :shoppings
+   resources :shoppings do
+     member do
+       get 'to_cancel'
+     end
+   end
    
    resources :articles
    resources :article_cates

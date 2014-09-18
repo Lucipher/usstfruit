@@ -55,7 +55,8 @@ gem 'grape-entity'
 gem 'rack-contrib'
 gem 'rack-cors'
 
-
+#state_machine
+gem 'aasm'
 
 
 group :doc do

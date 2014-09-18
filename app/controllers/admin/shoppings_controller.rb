@@ -6,5 +6,15 @@ class Admin::ShoppingsController <  Admin::BaseController
   end
   
   def show
+    @shopping = Shopping.find(params[:id])
+  end
+  
+  
+  def to_cancel
+    @shopping = Shopping.find(params[:id])
+    @shopping.confirm
+    @shopping.cancel
+    
+    render :text=> @shopping.confirmed_at
   end
 end
