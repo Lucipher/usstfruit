@@ -11,7 +11,7 @@ module Usstfruit
       
     resource :shoppings do
       get do
-        @shoppings = Shopping.all
+        @shoppings = Shopping.all.order("created_at desc")
         present @shoppings, :with => Entities::Shopping
       end
       
