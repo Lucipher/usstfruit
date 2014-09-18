@@ -14,6 +14,12 @@ class Admin::ShoppingsController <  Admin::BaseController
   end
   
   
+  def destroy
+    @shopping = Shopping.find(params[:id])
+    @shopping.destroy
+    redirect_to admin_shoppings_path,:notice=>"删除订单成功"
+  end
+  
   def to_confirm
     @shopping = Shopping.find(params[:id])
     @shopping.confirm
