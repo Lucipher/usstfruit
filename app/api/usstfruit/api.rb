@@ -12,7 +12,7 @@ module Usstfruit
     resource :shoppings do
       get do
         @shoppings = Shopping.all
-        present @shoppings
+        present @shoppings, :with => Entities::Shopping
       end
       
       get ":id" do

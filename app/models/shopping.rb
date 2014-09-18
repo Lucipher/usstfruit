@@ -2,7 +2,7 @@ class Shopping < ActiveRecord::Base
   include AASM
   has_many :shopping_items,:dependent => :destroy
   belongs_to :cart
-  after_create :save_shopping_items
+  after_create :save_shopping_items,:create_notification
   before_save :update_status
   validates :customer_name,:customer_address,:mobile,:presence => true
 
@@ -72,6 +72,15 @@ class Shopping < ActiveRecord::Base
     shopping_items.each do |item|
       item.save
     end
+  end
+  
+  
+  def create_notification
+    notification = Notification.new
+    notification.content = "订单编号#{self.id},金额#{self.amount.to_f}被客户创建"
+    notification.notifyable_type = "Shopping"
+    notification.notifyable_id = self.id
+    notification.save
   end
   
   def update_status

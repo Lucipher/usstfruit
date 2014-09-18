@@ -42,6 +42,7 @@ Usstfruit::Application.routes.draw do
    
    resources :articles
    resources :article_cates
+   resources :users
    
    resources :pictures do
      collection do

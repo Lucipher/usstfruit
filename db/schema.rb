@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917153934) do
+ActiveRecord::Schema.define(version: 20140918075610) do
 
   create_table "article_cates", force: true do |t|
     t.string   "name"
@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(version: 20140917153934) do
   create_table "carts", force: true do |t|
     t.integer  "weixin_user_id"
     t.text     "remark"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.string   "notifyable_type"
+    t.integer  "notifyable_id"
+    t.string   "content"
+    t.string   "range"
+    t.string   "media"
+    t.datetime "send_at"
+    t.integer  "retry_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,6 +149,7 @@ ActiveRecord::Schema.define(version: 20140917153934) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
