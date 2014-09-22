@@ -6,4 +6,8 @@ module ApplicationHelper
     session[:cart_id]=cart.id
     cart
   end
+  
+  def current_weixin_user_id
+    session[:weixin_user_id]
+  end
 end

@@ -42,10 +42,10 @@
 		    <span class="icon fa fa-shopping-cart"></span>
 		    <span class="tab-label">购物车</span>
 			<%end%>
-		  <a class="tab-item" href="#">
+			<%=link_to mobile_weixin_user_path(current_weixin_user_id),:class=>"tab-item","data-ignore"=>"push"  do%>
 		    <span class="icon fa fa-user"></span>
 		    <span class="tab-label">个人中心</span>
-		  </a>
+				<%end%>
 
 		</nav>
 		

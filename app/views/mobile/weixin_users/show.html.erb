@@ -1,0 +1,25 @@
+<style>
+	.red_button{
+		color:white;
+		background-color:red;
+		padding:3px 3px 3px 3px;
+		margin-left:0px;
+	}
+	.content{
+		background-color:#F7F7F7;
+	}
+</style>
+<div class="content-padded">
+	<h2>个人信息</h2>
+	<p>顾客ID:#<%=@weixin_user.id%></p>
+	<ul class="table-view">
+	  <li class="table-view-cell">
+			<%=link_to history_shopping_mobile_weixin_user_path(current_weixin_user_id),:class=>"navigate-right"  ,"data-ignore"=>"push" do%>
+				<i class="fa fa-shopping-cart red_button"></i>
+	      我的订单
+			<%end%>
+
+	  </li>
+	</ul>
+</div>
+

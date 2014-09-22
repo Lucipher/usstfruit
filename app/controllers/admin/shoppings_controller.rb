@@ -13,6 +13,15 @@ class Admin::ShoppingsController <  Admin::BaseController
     @shopping = Shopping.find(params[:id])
   end
   
+  def update_field
+    @shopping=Shopping.find(params[:id])
+    name = params[:name]
+    value = params[:value]
+    @shopping.update({name=>value})
+    render :status=>200, :json=> {:message=>"OK"}
+  end
+  
+  
   
   def destroy
     @shopping = Shopping.find(params[:id])

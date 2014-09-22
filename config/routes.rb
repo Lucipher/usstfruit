@@ -18,6 +18,11 @@ Usstfruit::Application.routes.draw do
       end
     end
     resources :shoppings
+    resources :weixin_users do
+      member do 
+        get 'history_shopping'
+      end
+    end
     
  end
  
@@ -37,6 +42,8 @@ Usstfruit::Application.routes.draw do
        get 'to_finish'
        
        get 'operation_history'
+       
+       put 'update_field'
      end
    end
    

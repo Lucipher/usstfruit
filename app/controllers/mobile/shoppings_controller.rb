@@ -23,6 +23,7 @@ class  Mobile::ShoppingsController < Mobile::BaseController
       @shopping.shopping_items << shopping_item
     end
     @shopping.cal_amount
+    @shopping.weixin_user_id = current_weixin_user_id
     if @shopping.save
       session[:cart_id]=nil
       redirect_to mobile_products_path

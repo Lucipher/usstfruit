@@ -14,3 +14,5 @@
 //= require  admin/AdminLTE/app.js
 //= require  admin/simditor-all.min
 //= require  wice_grid
+//= require  admin/bootstrap-editable
+ 

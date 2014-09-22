@@ -1,0 +1,27 @@
+<style>
+
+	.content{
+		background-color:#F7F7F7;
+	}
+	
+	.table-view-cell{
+		padding-bottom:5px;
+	}
+</style>
+<div class="content-padded">
+	<h2>历史订单列表</h2>
+	<p>暂无详细信息</p>
+	<ul class="table-view">
+		<%@shoppings.each do |shopping|%>
+	  <li class="table-view-cell">
+			<%=link_to history_shopping_mobile_weixin_user_path(current_weixin_user_id),:class=>"navigate-right"  ,"data-ignore"=>"push" do%>
+	      订单编号:#<%=shopping.id%>
+				<p>订单金额:<span style="color:red"><%=number_to_currency(shopping.amount,:unit=>"&yen")%></span></p>
+				<p>订单状态:<%=shopping.status%></p>
+				
+			<%end%>
+
+	  </li>
+	<%end%>
+	</ul>
+</div>

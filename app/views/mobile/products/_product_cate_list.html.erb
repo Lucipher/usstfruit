@@ -4,7 +4,7 @@
 	<%end%>
 	
 	<div id="<%="cate_#{cate.id}"%>" class="<%=active_class%> tab_content">
-		<ul class="table-view">	
+		<ul class="table-view non-padding">	
 				<%cate.products.order("priority desc").each do |product|%>
 					<li class="table-view-cell">
 		 	 
