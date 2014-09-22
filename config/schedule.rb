@@ -8,7 +8,7 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 
-every '*/15 * * * *' do
+every '*/1 * * * *' do
   runner "script/job/jpush.rb"
 end
 #
