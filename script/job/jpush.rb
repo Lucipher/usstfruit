@@ -1,4 +1,3 @@
-require 'Jpush'
 master_secret = 'fcf02d4445d83de0cd6e9a7b';
 app_key = '53ff54d6e04cc53a6c954b49';
 
