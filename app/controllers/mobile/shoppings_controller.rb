@@ -26,7 +26,7 @@ class  Mobile::ShoppingsController < Mobile::BaseController
     @shopping.weixin_user_id = current_weixin_user_id
     if @shopping.save
       session[:cart_id]=nil
-      redirect_to mobile_products_path
+      redirect_to history_shopping_mobile_weixin_user_path(current_weixin_user_id)
     else
       render 'new'
     end
