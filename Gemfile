@@ -23,6 +23,8 @@ gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 0.1.3'
 gem "ransack"
 
+gem "whenever"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
