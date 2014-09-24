@@ -29,3 +29,5 @@
                 cover: "封面"
                 hidden: "隐藏"
                 content: "正文"
+            shopping:
+                want_ship: "预计收货时间"

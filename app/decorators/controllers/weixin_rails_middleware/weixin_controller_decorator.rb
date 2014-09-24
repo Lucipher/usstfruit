@@ -27,7 +27,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
   private
 
     def response_text_message(options={})
-      reply_text_message("Your Message: #{@keyword}")
+      reply_text_message("")
     end
 
     # <Location_X>23.134521</Location_X>

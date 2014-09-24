@@ -5,7 +5,8 @@ class Shopping < ActiveRecord::Base
   after_create :save_shopping_items,:create_notification
   before_save :update_status
   validates :customer_name,:customer_address,:mobile,:presence => true
-
+  
+  SHIP_ITEMS = []
 
 
    aasm do

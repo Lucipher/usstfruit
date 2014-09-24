@@ -81,7 +81,9 @@
 												 <abbr title='手机'>客户地址:</abbr>
 												<a href="#" id="customer_address" data-type="text" data-pk="<%=@shopping.id%>" data-title="客户地址">													  <%= @shopping.customer_address -%>
   											</a><br/>
-	
+												 <abbr title='预计收货时间'>预计收货时间:</abbr>
+												<a href="#" id="want_ship" data-type="text" data-pk="<%=@shopping.id%>" data-title="预计收货时间">													  <%= @shopping.want_ship -%>
+  											</a><br/>
 													
 													 <abbr title='下单时间'>下单时间:</abbr>
 														<%= l @shopping.created_at%> </br>
@@ -135,7 +137,12 @@
 	    url: '/admin/shoppings/<%=@shopping.id%>/update_field'
 	});
 
-
+	$('#want_ship').editable({
+	    type: 'text',
+	    name: 'want_ship',
+	    pk: '<%=@shopping.id%>',
+	    url: '/admin/shoppings/<%=@shopping.id%>/update_field'
+	});
 	$('#mobile').editable({
 	    type: 'text',
 	    name: 'mobile',

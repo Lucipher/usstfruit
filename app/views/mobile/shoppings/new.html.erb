@@ -1,11 +1,8 @@
 <%=simple_form_for [:mobile,@shopping] ,:html=>{:class=>"input-group"} do |f| %>
   <div class="input-row">
-    <label>配送时间</label>
-		<select name="abc">
-		<option value=0>11:30 - 12:30</option>
-		<option value=1>16:30 - 17:30</option>
-		<option value=2>21:00 - 21:30</option>
-		</select>
+		<%=f.input :want_ship,:placeholder=>"如:张三、李同学",:collection=>["11:30 - 12:30","16:30 - 17:30","21:00 - 21:30"],:include_blank=>false%>
+	
+
   </div>
 	<%=f.hidden_field :cart_id%>
 	<%=f.hidden_field :remark%>
