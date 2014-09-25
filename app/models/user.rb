@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-         
   def admin?
-     self.email == "akirapanda@newnil.com" || self.role == "管理员"
+     self.email == "akirapanda@newnil.com" || self.role == "管理员" || self.email == "panxingyu@nosweetnopay.com"
   end
 end

@@ -1,0 +1,14 @@
+<%= grid(@users_grid, show_filters: :when_filtered, hide_csv_button: true) do |g|
+	g.column :name => 'ID', :attribute => 'id' do |user|
+		link_to user.id,[:admin,user]
+	end
+	
+	g.column :name => 'Email', :attribute => 'email'
+
+	
+
+	g.column do |user|
+
+	end
+	
+end -%>
