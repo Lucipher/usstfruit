@@ -1,0 +1,17 @@
+<div id="shopping_<%=shopping.id%>" class="btn-group">  
+	<%if shopping.may_confirm? %>
+		<%=link_to "配货确认",to_confirm_admin_shopping_path(shopping),:class=>"btn btn-primary",:remote=>true%>
+	<%end%>
+
+	<%if shopping.may_ship? %>
+		<%=link_to "送货确认",to_ship_admin_shopping_path(shopping),:class=>"btn btn-primary",:remote=>true%>
+	<%end%>
+
+	<%if shopping.may_finish? %>
+		<%=link_to "订单完成",to_finish_admin_shopping_path(shopping),:class=>"btn btn-success",:remote=>true%>
+	<%end%>
+
+	<%if shopping.may_cancel? %>
+		<%=link_to "取消",to_cancel_admin_shopping_path(shopping),:class=>"btn btn-danger",:remote=>true%>
+	<%end%>
+</div>

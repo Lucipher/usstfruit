@@ -1,0 +1,2 @@
+$("#shopping_<%=@shopping.id%>").replaceWith('<%= j(render "grid_ops",:shopping=>@shopping) %>');
+$("#shopping_status_<%=@shopping.id%>").html("<%=@shopping.status%>")

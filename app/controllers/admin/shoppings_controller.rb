@@ -33,7 +33,11 @@ class Admin::ShoppingsController <  Admin::BaseController
     @shopping = Shopping.find(params[:id])
     @shopping.confirm
     @shopping.save
-    redirect_to [:admin,@shopping],:notice=>"订单已确认配货"
+    respond_to do |format|
+      format.html { redirect_to [:admin,@shopping],:notice=>"订单已确认配货" }
+      format.js { render 'process' }
+    end
+    
   end
   
   
@@ -41,19 +45,28 @@ class Admin::ShoppingsController <  Admin::BaseController
     @shopping = Shopping.find(params[:id])
     @shopping.ship
     @shopping.save
-    redirect_to [:admin,@shopping],:notice=>"订单已确认配货"
+    respond_to do |format|
+      format.html {redirect_to [:admin,@shopping],:notice=>"订单已确认配货" }
+      format.js { render 'process' }
+    end
   end
   
   def to_finish
     @shopping = Shopping.find(params[:id])
     @shopping.finish
     @shopping.save
-    redirect_to [:admin,@shopping],:notice=>"订单已确认配货"
+    respond_to do |format|
+      format.html {redirect_to [:admin,@shopping],:notice=>"订单已确认配货" }
+      format.js { render 'process' }
+    end
   end
   def to_cancel
     @shopping = Shopping.find(params[:id])
     @shopping.cancel
     @shopping.save
-    redirect_to [:admin,@shopping],:notice=>"订单已被取消"
+    respond_to do |format|
+      format.html {redirect_to [:admin,@shopping],:notice=>"订单已被取消" }
+      format.js { render 'process' }
+    end
   end
 end

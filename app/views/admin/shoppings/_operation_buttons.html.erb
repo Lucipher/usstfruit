@@ -4,7 +4,6 @@
 	
 	</div>
 	<div class="btn-group pull-right">
-		
 		<%if @shopping.may_cancel? %>
 			<%=link_to "取消订单",to_cancel_admin_shopping_path(@shopping),:class=>"btn btn-danger"%>
 		<%end%>

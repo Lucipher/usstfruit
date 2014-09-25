@@ -44,6 +44,9 @@ Usstfruit::Application.routes.draw do
        get 'operation_history'
        
        put 'update_field'
+       
+       
+       get 'daily_result'
      end
    end
    

@@ -7,13 +7,17 @@
 	g.column :name => '手机', :attribute => 'mobile'
 	g.column :name => '金额', :attribute => 'amount'
 	g.column :name => '预计收货时间', :attribute => 'want_ship'
-	g.column :name => '状态', :attribute => 'status'
+	g.column :name => '状态', :attribute => 'status' do  |shopping|
+		raw "<div id=\"shopping_status_#{shopping.id}\"> #{shopping.status}</div>"
+	end
 	
 
 	g.column do |shopping|
-		edit =  link_to raw("<button class=\"btn btn-mini btn-info\"><i class=\"fa fa-edit bigger-120\"></i></button>"), edit_admin_shopping_path(shopping)
-		remove = link_to raw("<button class=\"btn btn-mini btn-danger\"><i class=\"fa fa-trash-o bigger-120\"></i></button>"), [:admin,shopping], method: :delete, data: { confirm: 'Are you sure?' }
-		raw "#{edit} #{remove}"
+		render 'grid_ops',:shopping=>shopping
 	end
+	g.column do |shopping|
+		link_to "删除",[:admin,shopping],:method=>:delete,:class=>"btn btn-danger"
+	end
+	
 	
 end -%>
