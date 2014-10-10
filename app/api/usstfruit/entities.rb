@@ -10,6 +10,5 @@ module Usstfruit
       expose :shopping_items, :using => Entities::ShoppingItem, :unless => { :collection => true }
     end
     
-
   end
 end

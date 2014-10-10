@@ -17,8 +17,7 @@ WeixinRailsMiddleware::WeixinController.class_eval do
   def nav_articles
     arts = []
     # 商城首页
-    art_title = generate_article("上理果园", "自营水果质量优，果切拼盘种类多。<br/>
-		价格最低服务好，快来这里试一试。", "#{server_path}/images/banner.jpg?1",mobile_root_url)
+    art_title = generate_article("上理果园", "点击图片进入商城", "#{server_path}/images/banner.jpg?1",mobile_root_url)
     arts << art_title
     arts
   end
