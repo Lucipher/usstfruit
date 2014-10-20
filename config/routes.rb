@@ -31,8 +31,13 @@ Usstfruit::Application.routes.draw do
    
    resources :weixin_users
    
+   resources :products do
+     member do
+       get 'on_sale'
+       get 'off_sale'
+     end
+   end
    
-   resources :products
    resources :product_cates
    resources :shoppings do
      member do

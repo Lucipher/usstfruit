@@ -1,0 +1,8 @@
+<div id="product<%=product.id%>" >  
+	<%if product.on_sale?%>
+		<%= link_to "#{t product.on_sale.to_s}",off_sale_admin_product_path(product),:remote=>true%>
+	
+	<%else%>
+		<%= link_to "#{t product.on_sale.to_s}",on_sale_admin_product_path(product),:remote=>true%>
+	<%end%>
+</div>

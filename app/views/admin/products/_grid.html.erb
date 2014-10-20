@@ -9,7 +9,6 @@
 		
   end
 
-
 	g.column :name => "销售价",:attribute => "price"
 	
 	g.column :name => "市场价",:attribute => "mk_price"
@@ -20,7 +19,7 @@
 	end
 	
 	g.column :name => "上架" ,:attribute => "on_sale" do |product|
-		 t product.on_sale.to_s
+		render "grid_on_sale",:product=>product
 	end 
 	
 	g.column do |product|

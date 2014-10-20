@@ -11,6 +11,18 @@ class Cart < ActiveRecord::Base
     self.cart_items.inject(0) { |sum, i| sum+i.amount }
   end
   
+  def check_any_off_sale?
+    result = false
+    self.cart_items.each do |cart_item|
+       unless cart_item.product.on_sale?
+         cart_item.quantity = 0
+         cart_item.amount = 0
+         cart_item.save
+         result = true
+       end
+    end
+    result
+  end
   
   def add_item(item)
     puts "id is #{item.product_id}"

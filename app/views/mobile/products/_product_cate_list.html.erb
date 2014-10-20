@@ -5,7 +5,7 @@
 	
 	<div id="<%="cate_#{cate.id}"%>" class="<%=active_class%> tab_content">
 		<ul class="table-view non-padding">	
-				<%cate.products.order("priority desc").each do |product|%>
+				<%cate.products.can_sale.order("priority desc").each do |product|%>
 					<li class="table-view-cell">
 		 	 
 						<%=render 'product_item',:product=>product%>

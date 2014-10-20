@@ -13,7 +13,7 @@ class  Mobile::ShoppingsController < Mobile::BaseController
     @cart = Cart.find(@shopping.cart_id)
     
     @cart.cart_items.each do |cart_item|
-      if cart_item.quantity > 0
+      if cart_item.quantity > 0 && cart_item.product.on_sale?
         shopping_item = ShoppingItem.new
         shopping_item.product_id = cart_item.product_id
         shopping_item.no  = cart_item.no
@@ -36,11 +36,17 @@ class  Mobile::ShoppingsController < Mobile::BaseController
   
   
   def new
-    if params[:cart_id].present?
+    if params[:cart_id].present? 
       @shopping = Shopping.new
       @shopping.cart_id = params[:cart_id]
+      
       @cart = Cart.find(@shopping.cart_id)
+      if @cart.check_any_off_sale?
+        redirect_to edit_mobile_cart_path(@cart)
+      end
+      
       @shopping.remark = @cart.remark
+
     else
       redirect_to mobile_products_path
     end

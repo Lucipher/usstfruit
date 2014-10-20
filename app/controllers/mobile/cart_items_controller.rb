@@ -58,7 +58,6 @@ class Mobile::CartItemsController < Mobile::BaseController
     if params[:cart_id].present? & params[:product_id].present?
       @cart = Cart.find(params[:cart_id])
       @product = Product.find(params[:product_id])
-      
       @cart_item = @cart.cart_items.find_by_product_id(params[:product_id])
       if @cart_item
         @cart_item.price =  @product.price

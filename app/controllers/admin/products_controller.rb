@@ -35,6 +35,25 @@ class  Admin::ProductsController < Admin::BaseController
     end
   end
   
+  def on_sale
+    @product = Product.find(params[:id])
+    if @product.on_sale?
+      @success = false
+    else
+      @product.change_on_sale
+      @success = @product.save
+    end
+  end
+  
+  def off_sale
+    @product = Product.find(params[:id])
+    if @product.on_sale?  
+      @product.change_off_sale
+      @success = @product.save
+    else
+      @success = false
+    end
+  end
   
   private
   def product_params
