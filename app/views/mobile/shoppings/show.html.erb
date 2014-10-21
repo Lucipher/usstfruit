@@ -7,9 +7,10 @@
 	.table-view-cell{
 		padding-bottom:5px;
 	}
+
 </style>
 
-<div class="content-padded">
+<div class="content-padded  roll-y">
 	<h2>订单编号 # <%=@shopping.id%></h2>
 	<p>下单时间:<%= l @shopping.created_at%></p>
 	<ul class="table-view">
@@ -26,13 +27,15 @@
 			<p><%= @shopping.remark%></p>
 		</li>
 	</ul>
-	
-	
-	<ul class="table-view roll-y" style="margin-top:0px">	
+	<%=link_to history_shopping_mobile_weixin_user_path(current_weixin_user_id),:class=>"btn btn-block"  ,"data-ignore"=>"push" do%>
+		返回
+	<%end%>
+	<ul class="table-view" style="margin-top:0px">	
 		<%@shopping.shopping_items.each do |shopping_item|%>
 			<li class="table-view-cell">
 				<%=render 'shopping_item',:shopping_item=>shopping_item%>
 			</li>
 		<%end%>
 	</ul>
+
 </div>

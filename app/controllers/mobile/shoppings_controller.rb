@@ -19,6 +19,7 @@ class  Mobile::ShoppingsController < Mobile::BaseController
         shopping_item.no  = cart_item.no
         shopping_item.name  = cart_item.name
         shopping_item.price  = cart_item.price
+        shopping_item.unit = cart_item.try(:product).try(:unit)
         shopping_item.quantity  = cart_item.quantity
         shopping_item.amount  = cart_item.amount
         @shopping.shopping_items << shopping_item
