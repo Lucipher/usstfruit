@@ -3,7 +3,7 @@ class  Mobile::ShoppingsController < Mobile::BaseController
   end
   
   def show
-    
+    @shopping = Shopping.find(params[:id])
   end
   
   def create
@@ -41,6 +41,7 @@ class  Mobile::ShoppingsController < Mobile::BaseController
       @shopping.cart_id = params[:cart_id]
       
       @cart = Cart.find(@shopping.cart_id)
+      
       if @cart.check_any_off_sale?
         redirect_to edit_mobile_cart_path(@cart)
       end

@@ -1,0 +1,38 @@
+<style>
+
+	.content{
+		background-color:#F7F7F7;
+	}
+	
+	.table-view-cell{
+		padding-bottom:5px;
+	}
+</style>
+
+<div class="content-padded">
+	<h2>订单编号 # <%=@shopping.id%></h2>
+	<p>下单时间:<%= l @shopping.created_at%></p>
+	<ul class="table-view">
+	  <li class="table-view-cell">
+			<p>联系人:<%=@shopping.customer_name%></p>
+			<p>电话:<%=@shopping.mobile%></p>
+			<p>地址:<%=@shopping.customer_address%></p>
+			
+			<p>订单金额:<span style="color:red"><%=number_to_currency(@shopping.amount,:unit=>"&yen")%></span></p>
+			<p>订单状态:<%=@shopping.status%></p>
+	  </li>
+	  <li class="table-view-cell">
+			<p>订单备注</p>
+			<p><%= @shopping.remark%></p>
+		</li>
+	</ul>
+	
+	
+	<ul class="table-view roll-y" style="margin-top:0px">	
+		<%@shopping.shopping_items.each do |shopping_item|%>
+			<li class="table-view-cell">
+				<%=render 'shopping_item',:shopping_item=>shopping_item%>
+			</li>
+		<%end%>
+	</ul>
+</div>

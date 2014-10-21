@@ -15,9 +15,7 @@ class Cart < ActiveRecord::Base
     result = false
     self.cart_items.each do |cart_item|
        unless cart_item.product.on_sale?
-         cart_item.quantity = 0
-         cart_item.amount = 0
-         cart_item.save
+         cart_item.destroy
          result = true
        end
     end

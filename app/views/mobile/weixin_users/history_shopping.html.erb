@@ -14,7 +14,7 @@
 	<ul class="table-view">
 		<%@shoppings.each do |shopping|%>
 	  <li class="table-view-cell">
-			<%=link_to history_shopping_mobile_weixin_user_path(current_weixin_user_id),:class=>"navigate-right"  ,"data-ignore"=>"push" do%>
+			<%=link_to mobile_shopping_path(shopping),:class=>"navigate-right"  ,"data-ignore"=>"push" do%>
 	      订单编号:#<%=shopping.id%>
 				<p>订单金额:<span style="color:red"><%=number_to_currency(shopping.amount,:unit=>"&yen")%></span></p>
 				<p>订单状态:<%=shopping.status%></p>
