@@ -27,7 +27,7 @@ Usstfruit::Application.routes.draw do
  end
  
  namespace :admin do
-   root :to => 'home#index'
+   root :to => 'products#index'
    
    resources :weixin_users
    
