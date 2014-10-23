@@ -4,7 +4,7 @@ Usstfruit::Application.routes.draw do
   mount Usstfruit::API => "/"
   
   namespace :mobile do
-    root :to => 'home#index'
+    root :to => 'products#index'
     get "two",:controller=>:home,:action=>:test
     resources :products
     resources :articles
@@ -27,7 +27,7 @@ Usstfruit::Application.routes.draw do
  end
  
  namespace :admin do
-   root :to => 'products#index'
+   root :to => 'home#index'
    
    resources :weixin_users
    
